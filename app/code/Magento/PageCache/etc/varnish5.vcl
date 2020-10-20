@@ -121,7 +121,7 @@ sub vcl_hash {
     if (req.http.cookie ~ "X-Magento-Vary=") {
         hash_data(regsub(req.http.cookie, "^.*?X-Magento-Vary=([^;]+);*.*$", "\1"));
     } else {
-        hash_data();
+        hash_data("");
     }
 
     # To make sure http users don't see ssl warning
